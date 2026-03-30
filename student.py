@@ -23,7 +23,8 @@ try:
 
     browser.find_element(By.ID, "solve").click()
     time.sleep(10)
-
+for i in range(4):
+    print(1)
 finally:
     browser.quit()
 

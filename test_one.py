@@ -1,8 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 import unittest
-
 
 class TestUnit(unittest.TestCase):
     def test_one(self):

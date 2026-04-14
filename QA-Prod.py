@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+import os
 
 # 1. Настройка опций
 options = webdriver.ChromeOptions()
@@ -11,6 +12,11 @@ options.add_argument("--window-size=1280,800")
 # 2. Правильная инициализация (ОДИН РАЗ)
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
+
+prefs = {
+    "downloand.default_directory": f"{os.getcwd()}/downloads" #сменить директория для скачавания
+}
+options.add_experimental_option()
 
 link = "https://the-internet.herokuapp.com/status_codes"
 

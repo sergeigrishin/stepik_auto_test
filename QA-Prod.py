@@ -1,16 +1,19 @@
+import os
 from time import sleep
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-browser = webdriver.Chrome()
-link  = "https://the-internet.herokuapp.com/status_codes"
-browser.get(link)
+chrome_options = webdriver.ChromeOptions()
+prefs = {
+    "download.default_directory": f"{os.getcwd()}/downloads"
+}
+chrome_options.add_experimental_option("prefs", prefs)
+service = Service(executable_path=ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
-my_elements = browser.find_elements("xpath", "//li/a")
+driver.get("")
 
 
-for elem in my_elements:
-    elem.click()
-    sleep(2)
-    browser.back()
-    sleep(2)
+

@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 chrome_options = webdriver.ChromeOptions()
 prefs = {
-    "download.default_directory": f"{os.getcwd()}/downloads"
+    "download.default_directory": os.path.join(os.getcwd(), "downloads") #Универсальный путь
 }
 chrome_options.add_experimental_option("prefs", prefs)
 service = Service(executable_path=ChromeDriverManager().install())

@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver #подключение
 from selenium.webdriver.common.by import By #подключение
 
@@ -20,11 +22,19 @@ print(PAGE_SOURCE) # Печатаем HTML-код в терминал
 #//employee[@id=’1’]/name[text()=’David’] - по тексту
 #//name[text()=’John’] - по тексту
 
-
-
 #//элемент [содержит (@атрибут, ‘значение содержимого’) ]
 #<button class="btn btn-white">Join</button>
 #// button[contains(@class, 'btn')]
 #//button[contains(text(), 'Join')]
+
+
+#Загрузка файла (если загрузка файла реализована через button - значит где-то точно есть input)
+#import os element.send_keys(os.path.join(os.getcwd(), "picture.jpg")) - для загрузки файла из  любой операционки
+browser.find_element("https://ya.ru").send_keys(f"{os.getcwd()}/doanloads/name_file.txt")
+
+
+
+
+
 
 

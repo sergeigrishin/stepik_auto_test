@@ -1,0 +1,6 @@
+Шпаргалка по командам терминала
+Создать venv----	python -m venv venv
+Активировать----	.\venv\Scripts\activate
+Деактивировать--	deactivate
+Установить пакет	pip install selenium
+Загругить все пакеты    pip install -r requirements.txt

@@ -1,20 +1,27 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-import os
+from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 
-chrome_options = webdriver.Chrome_Options()
+
+chrome_options = webdriver.ChromeOptions()
 prefs = {
-        "download.default_directory": os.path.join(os.getcwd(), "downloads")
+    "download.default_directory": os.path.join(os.getcwd(), "download")
 }
 
-chrome_options.add_experimental_option("prefs", prefs)
+chrome_options.add_experemental_options("prefs", prefs)
 service = Service(executable_path=ChromeDriverManager().install())
-driver = webdriver.Chrome(options=chrome_options, service=service)
+driver: WebDriver = webdriver.Chrome(options= chrome_options, service=service)
+wait = WebDriverWait(driver, 10, 1)
+
+driver.get("https://omayo.blogspot.com")
 
 try:
-    driver.get("https://demoqa.com/upload-download")
+
 
 finally:
     driver.quit()
